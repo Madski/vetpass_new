@@ -71,7 +71,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="password">Parole:</label><br>
         <input class="form-control" type="password" id="password" name="password" required><br>
         <div class="input-group-button">
-        <button class="button" type="submit" id="submitButton">Reģistrēties</button>
+            <button class="button" type="submit" id="submitButton">Reģistrēties</button>
+        </div>
+        
+        <div class="center">
+            <p>Esi jau reģistrējies? <a href="login.php">Pieslēgties</a>.</p>
         </div>
         
     </form>

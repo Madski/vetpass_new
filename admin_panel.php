@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+<p><a href="logout.php">Logout</a></p>
+</body>
+</html>
 <?php
 session_start();
 require_once('db_connection.php');
@@ -10,7 +22,7 @@ if (!isset($_SESSION['admin_id'])) {
 $sql = "SELECT * FROM doctors WHERE request_status='pending'";
 $result = mysqli_query($conn, $sql);
 
-echo "<h2>Doctor Requests</h2>";
+echo "<h2>Veterinārārstu pietikumi</h2>";
 echo "<table border='1'>";
 echo "<tr><th>Username</th><th>First Name</th><th>Last Name</th><th>Certificate Number</th><th>Email</th><th>Phone Number</th><th>Action</th></tr>";
 

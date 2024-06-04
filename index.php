@@ -25,7 +25,6 @@
                 <div class="home_navigation_nav">
                     <a href="index.php" class="home_navigation_nav-link">Sākums</a>
                     <a href="about.html" class="home_navigation_nav-link">Par mums</a>
-                    <a href="reviews.php" class="home_navigation_nav-link">Atsauksmes</a>
                 </div>
             </div>
             <div class="home_banner_content">

@@ -25,18 +25,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Admin Login</title>
 </head>
 <body>
-    <h2>Admin Login</h2>
+<div class="login-back">
+		<div class="login">
+			<div class="home_navigation_logo-arrow">
+				<span>
+					<a class="material-symbols-outlined arrow" href="index.php">arrow_back</a>
+				</span>
+				<div class="arrow-text">
+					<a class="arrow-href  login-text" href="index.php"> Uz sākumu</a>
+				</div>
+			</div>
+
+			<div class="login-title">
+				<h2>Pieslēgties</h2>
+			</div>
     <form action="admin_login.php" method="post">
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
+        <div class="input-group">
+            <label for="email">E-pasts:</label><br>
+            <input class="form-control" type="email" id="email" name="email" required><br>
+        </div>
+        
+        <div class="input-group">
+            <label for="password">Parole:</label><br>
+            <input class="form-control" type="password" id="password" name="password" required><br>
+        </div>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
-
-        <button type="submit">Login</button>
+        <div class="input-group-button">
+            <button class="button" type="submit">Pieslēgties</button>
+        </div>
     </form>
+</div>
+</div>
 </body>
 </html>

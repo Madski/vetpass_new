@@ -277,6 +277,22 @@ label,
 }
 
 
+/* Table
+============*/
+table {
+    border-collapse: collapse;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 60px;
+}
+  
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
 
 /* Image
 ===============*/
@@ -294,6 +310,7 @@ label,
 .login-back {
     width: 100vw;
     height: fit-content;
+    min-height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;

@@ -85,6 +85,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="input-group-button">
                     <button class="button" type="submit">Reģistrēties</button>  
                 </div>
+                <div class="center">
+                    <p>Esi jau reģistrējies? <a href="login.php">Pieslēgties</a>.</p>
+                </div>
             
             </form>
         </div>
