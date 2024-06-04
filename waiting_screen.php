@@ -2,16 +2,15 @@
 session_start();
 require_once('db_connection.php');
 
-// Check if the doctor's request has been accepted
+// Pārbauda vai ārsta reģistrācija ir pieņemts
 if(isset($_GET['id'])) {
-    $doctor_id = $_GET['id']; // Using 'id' instead of 'doctor_id'
+    $doctor_id = $_GET['id'];
     $sql_check_status = "SELECT request_status FROM doctors WHERE id = '$doctor_id'";
     $result_check_status = mysqli_query($conn, $sql_check_status);
 
     if (mysqli_num_rows($result_check_status) > 0) {
         $row = mysqli_fetch_assoc($result_check_status);
         if ($row['request_status'] === 'accepted') {
-            // Redirect the doctor to the login page
             header("Location: login.php?accepted=true");
             exit();
         }

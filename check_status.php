@@ -2,9 +2,9 @@
 session_start();
 require_once('db_connection.php');
 
-// Check if the doctor's request has been accepted
+// Pārbauda vai ārsta reģistrācija ir pieņemta
 if(isset($_GET['id'])) {
-    $doctor_id = $_GET['id']; // Using 'id' instead of 'doctor_id'
+    $doctor_id = $_GET['id'];
     $sql_check_status = "SELECT request_status FROM doctors WHERE id = '$doctor_id'";
     $result_check_status = mysqli_query($conn, $sql_check_status);
 

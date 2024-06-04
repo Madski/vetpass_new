@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 			</div>
 
 			<div class="login-title">
-				<h2>Login</h2>
+				<h2>Pieslēgties</h2>
 			</div>
 			
 			<form method="post" action="login.php">
@@ -72,14 +72,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                     <label for="password">Parole:</label><br>
                     <input class="form-control" type="password" id="password" name="password" required><br>
                 </div>
-                <div class="input-group"> 
+                <div class="input-group-button"> 
                     <button class="button" type="submit" name="login">Pieslēgties</button>
                 </div>
             </form>
             <div class="center">
-                <p>Not registered yet? <a href="customer_registration.php">Register here as a customer</a>.</p>
-                <p>Not registered yet? <a href="doctor_registration.php">Register here as a doctor</a>.</p>
-                <p>I'm an admin! <a href="admin_login.php">Admin Login</a>.</p>
+                <p>Neesi vel reģistrēties? <a href="customer_registration.php">Reģistrēties kā lietotājam</a>.</p>
+                <p>Neesi vel reģistrējies? <a href="doctor_registration.php">Reģistrēties kā veterinārārstam</a>.</p>
+                <p>Esmu administrators! <a href="admin_login.php">Administrators</a>.</p>
             </div>
 			</form>
 		</div>

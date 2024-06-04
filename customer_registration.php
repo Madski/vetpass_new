@@ -7,10 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $owner_surname = $_POST['owner_surname'];
     $animal_type = $_POST['animal_type'];
     $phone_number = $_POST['phone_number'];
-    $email = $_POST['email']; // Adding email field
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Insert data into the customers table
     $sql = "INSERT INTO customers (owner_name, owner_surname, animal_type, phone_number, email, password)
             VALUES ('$owner_name', '$owner_surname', '$animal_type', '$phone_number', '$email', '$password')";
 
@@ -52,17 +51,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="input-group">
                     <label for="owner_name">Saimnieka vārds:</label><br>
-                    <input type="text" id="owner_name" name="owner_name" required><br>	
+                    <input class="form-control" type="text" id="owner_name" name="owner_name" required><br>	
                 </div>
         
                 <div class="input-group">
                     <label for="owner_surname">Saimnieka uzvdārds:</label><br>
-                    <input type="text" id="owner_surname" name="owner_surname" required><br>
+                    <input class="form-control" type="text" id="owner_surname" name="owner_surname" required><br>
                 </div>
         
                 <div class="input-group">
                     <label for="animal_type">Dzīvnieka tips:</label><br>
-                    <select id="animal_type" name="animal_type" required>
+                    <select class="form-control" id="animal_type" name="animal_type" required>
                         <option value="Dog">Dog</option>
                         <option value="Cat">Cat</option>
                         <option value="Hamster">Hamster</option>
@@ -71,20 +70,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="input-group">
                     <label for="phone_number">Telefona numurs:</label><br>
-                    <input type="tel" id="phone_number" name="phone_number" required><br>
+                    <input class="form-control" type="tel" id="phone_number" name="phone_number" required><br>
                 </div>
                 <div class="input-group">
                     <label for="email">E-pasts:</label><br>
-                    <input type="email" id="email" name="email" required><br>
+                    <input class="form-control" type="email" id="email" name="email" required><br>
                 </div>
                 
                 <div class="input-group">
                     <label for="password">Parole:</label><br>
-                    <input type="password" id="password" name="password" required><br>
+                    <input class="form-control" type="password" id="password" name="password" required><br>
                 </div>
 
-                <div class="input-group">
-                    <button type="submit">Reģistrēties</button>  
+                <div class="input-group-button">
+                    <button class="button" type="submit">Reģistrēties</button>  
                 </div>
             
             </form>

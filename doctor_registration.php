@@ -32,34 +32,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <title>Customer Registration</title>
     <title>Doctor Registration</title>
 </head>
 <body>
-    <h2>Doctor Registration</h2>
+<div class="login-back">
+		<div class="login">
+			<div class="home_navigation_logo-arrow">
+				<span>
+					<a class="material-symbols-outlined arrow" href="index.php">arrow_back</a>
+				</span>
+				<div class="arrow-text">
+					<a class="arrow-href  login-text" href="index.php"> Uz sākumu</a>
+				</div>
+			</div>
+    <h2>Veterinārārsta reģistrācija</h2>
     <form id="registrationForm" action="doctor_registration.php" method="post">
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br>
+        <label for="username">Lietotajvārds:</label><br>
+        <input class="form-control" type="text" id="username" name="username" required><br>
 
-        <label for="first_name">First Name:</label><br>
-        <input type="text" id="first_name" name="first_name" required><br>
+        <label for="first_name">Vārds:</label><br>
+        <input class="form-control" type="text" id="first_name" name="first_name" required><br>
 
-        <label for="last_name">Last Name:</label><br>
-        <input type="text" id="last_name" name="last_name" required><br>
+        <label for="last_name">Uzvārds:</label><br>
+        <input class="form-control" type="text" id="last_name" name="last_name" required><br>
 
-        <label for="certificate_number">Certificate Number:</label><br>
-        <input type="text" id="certificate_number" name="certificate_number" required><br>
+        <label for="certificate_number">Sertifikāta numurs:</label><br>
+        <input class="form-control" type="text" id="certificate_number" name="certificate_number" required><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br>
+        <label for="email">E-pasts:</label><br>
+        <input class="form-control" type="email" id="email" name="email" required><br>
 
-        <label for="phone_number">Phone Number:</label><br>
-        <input type="tel" id="phone_number" name="phone_number" required><br>
+        <label for="phone_number">Telefona numurs:</label><br>
+        <input class="form-control" type="tel" id="phone_number" name="phone_number" required><br>
 
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br>
-
-        <button type="submit" id="submitButton">Register as Doctor</button>
+        <label for="password">Parole:</label><br>
+        <input class="form-control" type="password" id="password" name="password" required><br>
+        <div class="input-group-button">
+        <button class="button" type="submit" id="submitButton">Reģistrēties</button>
+        </div>
+        
     </form>
+
+</div>
+</div>
 
     <div id="approvalMessage" style="display: none;">
         <p id="countdownText">You have been accepted! Please log in.</p>
