@@ -85,6 +85,20 @@ label,
     color: #000;
 }
 
+.form-control {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #000;
+    display: block;
+    width: 80%;
+    height: 40px;
+    padding: 0 20px;
+    border-radius: 20px;
+    margin: 10px 0px;
+    font-family: "Poppins", sans-serif;
+}
+
+
 .center {
     text-align: center;
 }
@@ -256,6 +270,7 @@ label,
     padding: 10px;
     box-sizing: border-box;
 }
+
 
 
 /* Image
