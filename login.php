@@ -66,14 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             <form action="login.php" method="post">
                 <div class="input-group">
                     <label for="email">E-pasts:</label><br>
-                    <input type="email" id="email" name="email" required><br>
+                    <input class="form-control" type="email" id="email" name="email" required><br>
                 </div>
                 <div class="input-group"> 
                     <label for="password">Parole:</label><br>
-                    <input type="password" id="password" name="password" required><br>
+                    <input class="form-control" type="password" id="password" name="password" required><br>
                 </div>
                 <div class="input-group"> 
-                    <button type="submit" name="login">Pieslēgties</button>
+                    <button class="form-control" type="submit" name="login">Pieslēgties</button>
                 </div>
             </form>
             <div class="center">
