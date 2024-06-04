@@ -85,6 +85,12 @@ label,
     color: #000;
 }
 
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-control {
     border: 1px solid #ccc;
     background-color: #fff;
