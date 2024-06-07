@@ -24,7 +24,7 @@ $result = mysqli_query($conn, $sql);
                 echo '<div class="profile">';
                 echo '<h3>' . $row['first_name'] . ' ' . $row['last_name'] . '</h3>';
                 if (!empty($row['profile_photo'])) {
-                    echo '<img class="image-doctor" src="' . $row['profile_photo'] . '" alt="Profile Photo">';
+                    echo '<img src="' . $row['profile_photo'] . '" alt="Profile Photo">';
                 } else {
                     echo '<img class="image-doctor" src="uploads/doctordefault.webp" alt="Default Profile Photo">';
                 }
