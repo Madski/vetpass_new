@@ -1,58 +1,46 @@
 <?php
 session_start();
 
-// Check if the doctor is logged in, if not, redirect to login page
 if (!isset($_SESSION['doctor_id'])) {
     header("Location: login.php");
     exit();
 }
 
-// Include database connection
 require_once('db_connection.php');
 
-// Get doctor details from the database
 $doctor_id = $_SESSION['doctor_id'];
 $sql = "SELECT * FROM doctors_accepted WHERE id=$doctor_id";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
-// Initialize variables with current doctor information
 $doctor_name = $row['first_name'] . ' ' . $row['last_name'];
 $email = $row['email'];
-$profile_photo = $row['profile_photo']; // Assuming this column exists in the doctors_accepted table
+$profile_photo = $row['profile_photo'];
 
-// Update doctor information if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $new_first_name = $_POST['first_name'];
     $new_last_name = $_POST['last_name'];
     $new_email = $_POST['email'];
-    // Additional fields for updating other information
     
-    // Check if a new profile photo is uploaded
     if ($_FILES['profile_photo']['name']) {
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["profile_photo"]["name"]);
         move_uploaded_file($_FILES["profile_photo"]["tmp_name"], $target_file);
         $new_profile_photo = $target_file;
     } else {
-        // Keep the existing profile photo if no new one is uploaded
         $new_profile_photo = $profile_photo;
     }
     
-    // Update doctor's information in the database
     $update_sql = "UPDATE doctors_accepted SET first_name='$new_first_name', last_name='$new_last_name', email='$new_email', profile_photo='$new_profile_photo' WHERE id=$doctor_id";
     mysqli_query($conn, $update_sql);
     
-    // Redirect to the dashboard after updating
     header("Location: doctor_dashboard.php");
     exit();
 }
 
-// Fetch visit requests for the doctor from the visit_requests table
 $visit_requests_sql = "SELECT * FROM visit_requests WHERE doctor_id = $doctor_id";
 $visit_requests_result = mysqli_query($conn, $visit_requests_sql);
 
-// Check if the query returned results
 if (!$visit_requests_result) {
     die('Invalid query: ' . mysqli_error($conn));
 }

@@ -11,12 +11,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
 
-    // Insert data into the doctors table with request status pending
     $sql = "INSERT INTO doctors (username, first_name, last_name, certificate_number, email, phone_number, password, request_status)
             VALUES ('$username', '$first_name', '$last_name', '$certificate_number', '$email', '$phone_number', '$password', 'pending')";
 
     if (mysqli_query($conn, $sql)) {
-        // Redirect to waiting screen
         header("Location: waiting_screen.php");
         exit();
     } else {
@@ -73,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="input-group-button">
             <button class="button" type="submit" id="submitButton">Reģistrēties</button>
         </div>
-        
+
         <div class="center">
             <p>Esi jau reģistrējies? <a href="login.php">Pieslēgties</a>.</p>
         </div>

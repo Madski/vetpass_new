@@ -18,13 +18,20 @@ if (!isset($_SESSION['admin_id'])) {
     header("location: admin_login.php");
 }
 
-// Fetch and display doctor requests
 $sql = "SELECT * FROM doctors WHERE request_status='pending'";
 $result = mysqli_query($conn, $sql);
 
 echo "<h2>Veterinārārstu pietikumi</h2>";
 echo "<table border='1'>";
-echo "<tr><th>Username</th><th>First Name</th><th>Last Name</th><th>Certificate Number</th><th>Email</th><th>Phone Number</th><th>Action</th></tr>";
+echo "<tr>
+        <th>Lietotājvārds</th>
+        <th>Vārds</th>
+        <th>Uzvārds</th>
+        <th>Sertifikāta numurs</th>
+        <th>E-pasts</th>
+        <th>Telefona numurs</th>
+        <th>Action</th>
+    </tr>";
 
 while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";

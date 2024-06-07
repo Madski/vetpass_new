@@ -2,6 +2,10 @@
 session_start();
 require_once('db_connection.php');
 
+function isValidPassword($password) {
+    return preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/', $password);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $owner_name = $_POST['owner_name'];
     $owner_surname = $_POST['owner_surname'];
@@ -10,16 +14,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
+    if (!isValidPassword($password)) {
+        echo "<script>alert('Password must contain at least one number, one uppercase letter, one lowercase letter, one special character, and be at least 8 characters long.');</script>";
+        exit();
+    }
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
     $sql = "INSERT INTO customers (owner_name, owner_surname, animal_type, phone_number, email, password)
-            VALUES ('$owner_name', '$owner_surname', '$animal_type', '$phone_number', '$email', '$password')";
+            VALUES ('$owner_name', '$owner_surname', '$animal_type', '$phone_number', '$email', '$hashed_password')";
 
     if (mysqli_query($conn, $sql)) {
-        // Redirect to customer dashboard after successful registration
         header("Location: customer_dashboard.php");
         exit();
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+
 }
 ?>
 
@@ -47,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			<div class="login-title">
 				<h2> Reģistrēties kā lietotājam </h2>
 			</div>
-			<form action="customer_registration.php" method="post">
+            <form action="customer_registration.php" method="post" id="registrationForm">
 
                 <div class="input-group">
                     <label for="owner_name">Saimnieka vārds:</label><br>
@@ -79,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 
                 <div class="input-group">
                     <label for="password">Parole:</label><br>
-                    <input class="form-control" type="password" id="password" name="password" required><br>
+                    <input class="form-control" type="password" id="password" class="error-message" name="password" required><br>
                 </div>
 
                 <div class="input-group-button">
@@ -92,5 +103,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
 	</div>
+    <div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modal-message"></p>
+        <button id="continueButton">Continue</button>
+    </div>
+</div>
+
+<script>
+    function validatePassword(password) {
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
+        return regex.test(password);
+    }
+
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+        const password = document.getElementById('password').value;
+        const modal = document.getElementById('modal');
+        const modalMessage = document.getElementById('modal-message');
+        const continueButton = document.getElementById('continueButton');
+
+        if (!validatePassword(password)) {
+            modalMessage.textContent = 'Password must contain at least one number, one uppercase letter, one lowercase letter, one special character, and be at least 8 characters long.';
+            modal.style.display = 'block';
+            event.preventDefault();
+        }
+
+        continueButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.getElementById('modal');
+        const closeButton = document.querySelector('.close');
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
 </body>
 </html>

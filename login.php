@@ -1,12 +1,12 @@
 <?php
 session_start();
+
 require_once('db_connection.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Check if the entered email and password match a customer or an approved doctor in the database
     $sql_customer = "SELECT * FROM customers WHERE email='$email' AND password='$password'";
     $result_customer = mysqli_query($conn, $sql_customer);
     $row_customer = mysqli_fetch_assoc($result_customer);
@@ -16,19 +16,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     $row_doctor = mysqli_fetch_assoc($result_doctor);
 
     if ($row_customer) {
-        // Customer exists, redirect to customer dashboard
         $_SESSION['customer_id'] = $row_customer['id'];
         $_SESSION['customer_name'] = $row_customer['name'];
         header("Location: customer_dashboard.php");
         exit();
     } elseif ($row_doctor) {
-        // Doctor exists and is approved, redirect to doctor dashboard
         $_SESSION['doctor_id'] = $row_doctor['id'];
         $_SESSION['doctor_name'] = $row_doctor['first_name'] . ' ' . $row_doctor['last_name'];
         header("Location: doctor_dashboard.php");
         exit();
     } else {
-        // Invalid credentials
         $error_message = "Invalid email or password. Please try again.";
     }
 }

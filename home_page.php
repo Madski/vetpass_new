@@ -38,6 +38,5 @@
         <h2>About Us</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet nisl nec eros ultrices vehicula...</p>
     </section>
-    <!-- Other sections can be added as needed -->
 </body>
 </html>

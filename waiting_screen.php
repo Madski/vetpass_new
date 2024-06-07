@@ -32,23 +32,21 @@ if(isset($_GET['id'])) {
         // Function to periodically check the status and redirect if accepted
         function checkStatusAndRedirect(doctorId) {
             setInterval(function() {
-                // Send an AJAX request to check the status
                 var xhr = new XMLHttpRequest();
                 xhr.onreadystatechange = function() {
                     if (this.readyState == 4 && this.status == 200) {
                         var response = JSON.parse(this.responseText);
                         if (response.status === 'accepted') {
-                            // Redirect to the login page
                             window.location.href = 'login.php?accepted=true';
                         }
                     }
                 };
                 xhr.open('GET', 'check_status.php?id=' + doctorId, true);
                 xhr.send();
-            }, 5000); // Check every 5 seconds
+            }, 5000); 
         }
 
-        // Start checking status when the page loads
+
         var doctorId = '<?php echo isset($_GET['id']) ? $_GET['id'] : '' ?>';
         if (doctorId !== '') {
             checkStatusAndRedirect(doctorId);

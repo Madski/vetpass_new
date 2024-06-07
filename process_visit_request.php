@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $visit_request_id = $_POST['visit_request_id'];
     $action = $_POST['action'];
 
-    // Get visit request details
     $sql = "SELECT vr.*, c.id AS customer_id
             FROM visit_requests vr
             INNER JOIN customers c ON vr.customer_id = c.id
@@ -28,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $customer_id = $visit_request['customer_id'];
 
         if ($action == 'accept') {
-            // Insert into visits_accepted table
             $animal_problem = $visit_request['request_text'];
             $status = 'accepted';
             $insert_sql = "INSERT INTO visits_accepted (visit_request_id, doctor_id, customer_id, animal_problem, status, created_at) 
@@ -37,13 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_bind_param($stmt, "iiiss", $visit_request_id, $doctor_id, $customer_id, $animal_problem, $status);
             mysqli_stmt_execute($stmt);
 
-            // Update visit request status
             $update_sql = "UPDATE visit_requests SET status = 'accepted' WHERE id = ?";
             $stmt = mysqli_prepare($conn, $update_sql);
             mysqli_stmt_bind_param($stmt, "i", $visit_request_id);
             mysqli_stmt_execute($stmt);
         } elseif ($action == 'deny') {
-            // Update visit request status
             $update_sql = "UPDATE visit_requests SET status = 'denied' WHERE id = ?";
             $stmt = mysqli_prepare($conn, $update_sql);
             mysqli_stmt_bind_param($stmt, "i", $visit_request_id);
