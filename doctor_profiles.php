@@ -11,7 +11,7 @@ $result = mysqli_query($conn, $sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Profiles</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <?php include 'customer_header.php'; ?>
@@ -26,7 +26,7 @@ $result = mysqli_query($conn, $sql);
                 if (!empty($row['profile_photo'])) {
                     echo '<img src="' . $row['profile_photo'] . '" alt="Profile Photo">';
                 } else {
-                    echo '<img src="uploads/doctordefault.webp" alt="Default Profile Photo">';
+                    echo '<img class="image-doctor" src="uploads/doctordefault.webp" alt="Default Profile Photo">';
                 }
                 echo '<a href="doctor_profile.php?id=' . $row['id'] . '">See Profile</a>';
                 echo '</div>';
