@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     if ($row_customer) {
         $_SESSION['customer_id'] = $row_customer['id'];
         $_SESSION['customer_name'] = $row_customer['name'];
-        header("Location: customer_dashboard.php");
+        header("Location: customer_info.php");
         exit();
     } elseif ($row_doctor) {
         $_SESSION['doctor_id'] = $row_doctor['id'];

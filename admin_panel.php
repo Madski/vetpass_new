@@ -21,7 +21,8 @@ if (!isset($_SESSION['admin_id'])) {
 $sql = "SELECT * FROM doctors WHERE request_status='pending'";
 $result = mysqli_query($conn, $sql);
 
-echo "<h2>Veterinārārstu pietikumi</h2>";
+echo "<h2 class='admin-panel_h2' >Veterinārārstu pietikumi</h2>";
+echo "<div class='table-container'>";
 echo "<table border='1'>";
 echo "<tr>
         <th>Lietotājvārds</th>
@@ -30,7 +31,7 @@ echo "<tr>
         <th>Sertifikāta numurs</th>
         <th>E-pasts</th>
         <th>Telefona numurs</th>
-        <th>Action</th>
+        <th>Akceptēt/Noraidīt</th>
     </tr>";
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -43,11 +44,12 @@ while ($row = mysqli_fetch_assoc($result)) {
     echo "<td>".$row['phone_number']."</td>";
     echo "<td><form action='admin_response.php' method='post'>";
     echo "<input type='hidden' name='doctor_id' value='".$row['id']."'>";
-    echo "<button type='submit' name='action' value='accept'>Accept</button>";
-    echo "<button type='submit' name='action' value='reject'>Reject</button>";
+    echo "<button class='admin_button' type='submit' name='action' value='accept'>Akceptēt</button>";
+    echo "<button class='admin_button' type='submit' name='action' value='reject'>Noraidīt</button>";
     echo "</form></td>";
     echo "</tr>";
 }
 
 echo "</table>";
+echo "</div>";
 ?>

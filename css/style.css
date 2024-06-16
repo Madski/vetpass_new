@@ -545,3 +545,72 @@ th, td {
 .f_profile_info {
     margin: 5px 0px;
 }
+
+
+/* Doctor profiles
+====================*/
+
+.container_profiles {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile_list {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin: 30px;
+}
+
+/* Waiting screen
+=====================*/
+
+.waiting {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.waiting_text {
+    max-width: 70%;
+    padding: 50px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Admin panel
+=================*/
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.admin_button {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    color: #18c0c0;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.admin-panel_h2 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px 0;
+}

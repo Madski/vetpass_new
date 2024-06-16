@@ -16,6 +16,7 @@ $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
 $animal_type = $row['animal_type'];
+$breed = $row['breed'];
 
 ?>
 
@@ -41,7 +42,7 @@ $animal_type = $row['animal_type'];
                     </ul>
                     <div class="f_profile_info">
                         <p><b>Dzīvienka tips: </b><?php echo $animal_type; ?></p>
-                        <p><b>Šķirne: </b></p>
+                        <p><b>Šķirne: </b><?php echo $breed; ?></p>
                         <p><b>Vecums: </b></p>
                         <p><b>Dzimums: </b></p>
                         <div class="auth-buttons margin_top_10px">

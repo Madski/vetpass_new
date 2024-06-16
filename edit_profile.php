@@ -72,6 +72,11 @@ mysqli_close($conn);
             </div>
 
             <div class="input-group">
+                <label for="phone">Šķirne:</label><br>
+                <input class="form-control" type="text" id="atype" name="atype" value="<?php echo htmlspecialchars($row['animal_type']); ?>"><br><br>
+            </div>
+
+            <div class="input-group">
                 <div class="auth-buttons">
                 <input type="submit" class="button" value="Saglabāt">
             </div>

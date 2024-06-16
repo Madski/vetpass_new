@@ -44,7 +44,9 @@ mysqli_close($conn);
         <form action="update_profile.php" method="POST">
             <label for="name">Dzīvienka tips:</label><br>
             <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($row['animal_type']); ?>"><br>
-        
+            
+            <label for="name">Šķirne:</label><br>
+            <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($row['breed']); ?>"><br>
             
             <input type="submit" value="Save Changes">
         </form>

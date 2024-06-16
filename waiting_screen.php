@@ -22,14 +22,29 @@ if(isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <title>Waiting for Approval</title>
 </head>
 <body>
-    <h2>Waiting for Approval</h2>
-    <p>Your registration request has been submitted. Please wait for admin approval.</p>
-
+<div class="login-back">
+    <div class="waiting">
+        <div class="waiting_text">
+            <div class="home_navigation_logo-arrow">
+				<span>
+					<a class="material-symbols-outlined arrow" href="index.php">arrow_back</a>
+				</span>
+				<div class="arrow-text">
+					<a class="arrow-href  login-text" href="index.php"> Uz sākumu</a>
+				</div>
+			</div>
+            <h2>Gaida apstiprinājumu</h2>
+            <p>Jūsu reģistrācijas pieprasījums ir iesniegts. Lūdzu, gaidiet administratora apstiprinājumu!</p>
+            <p>Tas var ilgt no 2 līdz 5 darba dienu laikā.</p>
+        </div>
+    </div>
+</div>
     <script>
-        // Function to periodically check the status and redirect if accepted
         function checkStatusAndRedirect(doctorId) {
             setInterval(function() {
                 var xhr = new XMLHttpRequest();

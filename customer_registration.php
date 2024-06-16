@@ -73,9 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="input-group">
                     <label for="animal_type">Dzīvnieka tips:</label><br>
                     <select class="form-control" id="animal_type" name="animal_type" required>
-                        <option value="Dog">Dog</option>
-                        <option value="Cat">Cat</option>
-                        <option value="Hamster">Hamster</option>
+                        <option value="Dog">Suns</option>
+                        <option value="Cat">Kaķis</option>
+                        <option value="Rodent">Grauzējs</option>
+                        <option value="Fish">Zivs</option>
+                        <option value="Bird">Puts</option>
+                        <option value="Reptiles">Reptilis</option>
                     </select><br>
                 </div>
 
