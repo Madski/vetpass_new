@@ -51,89 +51,12 @@ if (!$visit_requests_result) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Doctor Dashboard</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #333;
-        }
-
-        h3 {
-            color: #555;
-            margin-top: 20px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        button[type="submit"] {
-            background-color: #4caf50;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        ul li {
-            background: #f9f9f9;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        ul li p {
-            color: #4caf50;
-            margin: 5px 0;
-        }
-
-        img {
-            max-width: 200px;
-            height: auto;
-        }
-    </style>
 </head>
 <body>
+<?php include 'doctor_header.php'; ?>
     <div class="container">
-        <h2>Welcome, <?php echo $doctor_name; ?>!</h2>
-        <p>Email: <?php echo $email; ?></p>
-
         <h3>Edit Your Information</h3>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
             <label for="first_name">First Name:</label><br>
@@ -189,7 +112,6 @@ if (mysqli_num_rows($visit_requests_result) > 0) {
         ?>
     </div>
 
-    <p><a href="logout.php">Logout</a></p>
 
     <script>
         // Function to preview profile photo

@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = mysqli_prepare($conn, $insert_sql);
         mysqli_stmt_bind_param($stmt, "iis", $doctor_id, $customer_id, $animal_problem);
         if (mysqli_stmt_execute($stmt)) {
-            echo "Visit request submitted successfully!";
+            echo "Pieraksts pievienots!";
         } else {
             echo "Error: " . mysqli_error($conn);
         }
@@ -46,32 +46,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Make Visit Request</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php include 'customer_header.php'; ?>
 
     <section class="container">
-        <h2>Make Visit Request</h2>
-        <div class="profile-details">
-            <div class="profile">
-                <h3><?php echo htmlspecialchars($doctor['first_name'] . ' ' . $doctor['last_name']); ?></h3>
-                <?php if (!empty($doctor['profile_photo'])): ?>
-                    <img src="<?php echo htmlspecialchars($doctor['profile_photo']); ?>" alt="Profile Photo">
-                <?php else: ?>
-                    <img src="uploads/default_profile_photo.jpg" alt="Default Profile Photo">
-                <?php endif; ?>
-                <p>Email: <?php echo htmlspecialchars($doctor['email']); ?></p>
-                <p>Phone Number: <?php echo htmlspecialchars($doctor['phone_number']); ?></p>
+        <div class="container_profiles">
+            <h2 class="title-profile">Pietikt pierakstu</h2>
+            <div class="profile-details">
+                <div class="profile">
+                    <h3><?php echo htmlspecialchars($doctor['first_name'] . ' ' . $doctor['last_name']); ?></h3>
+                    <?php if (!empty($doctor['profile_photo'])): ?>
+                        <img src="<?php echo htmlspecialchars($doctor['profile_photo']); ?>" alt="Profile Photo">
+                    <?php else: ?>
+                        <img src="uploads/default_profile_photo.jpg" alt="Default Profile Photo">
+                    <?php endif; ?>
+                    <p>E-pasts: <?php echo htmlspecialchars($doctor['email']); ?></p>
+                    <p>Telefona numurs: <?php echo htmlspecialchars($doctor['phone_number']); ?></p>
 
 
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?id=" . htmlspecialchars($doctor_id); ?>" method="post">
-                    <label for="animal_problem">Animal Problem:</label><br>
-                    <textarea id="animal_problem" name="animal_problem" rows="4" cols="50" required></textarea><br>
-                    <button type="submit">Make a Visit</button>
-                    <input type="hidden" name="doctor_id" value="<?php echo htmlspecialchars($doctor_id); ?>">
-                </form>
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?id=" . htmlspecialchars($doctor_id); ?>" method="post">
+                        <label for="animal_problem">Pieraksta iemesls:</label><br>
+                        <textarea id="animal_problem" name="animal_problem" rows="4" cols="50" required></textarea><br>
+                        <div class="auth-buttons">
+                            <button class="button" type="submit">Pieteikt pierakstu</button>
+                            <input type="hidden" name="doctor_id" value="<?php echo htmlspecialchars($doctor_id); ?>">
+                        </div>
+                        
+                    </form>
+                </div>
             </div>
         </div>
     </section>

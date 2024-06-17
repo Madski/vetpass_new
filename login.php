@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     } elseif ($row_doctor) {
         $_SESSION['doctor_id'] = $row_doctor['id'];
         $_SESSION['doctor_name'] = $row_doctor['first_name'] . ' ' . $row_doctor['last_name'];
-        header("Location: doctor_dashboard.php");
+        header("Location: doctor_visit.php");
         exit();
     } else {
         $error_message = "Invalid email or password. Please try again.";

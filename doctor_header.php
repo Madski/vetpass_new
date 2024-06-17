@@ -37,13 +37,13 @@
             </div>
             <nav class="navigation">
                 <ul>
-                    <li><a href="customer_info.php">Profils</a></li>
-                    <li><a href="doctor_profiles.php">Veterinārārsti</a></li>
-                    <li><a href="customer_info.php">Medicīniskie dati</a></li>
+                    <li><a href="doctor_info.php">Profils</a></li>
+                    <li><a href="doctor_visit.php">Pieraksti</a></li>
+                    <li><a href="customer_info.php">Pievienot datus</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
-                    <a href="logout.php" class="button">Izrakstīties</a>
+                <a href="logout.php" class="button">Izrakstīties</a>
             </div>
         </div>
     </header>

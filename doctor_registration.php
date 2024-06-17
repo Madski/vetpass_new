@@ -2,6 +2,10 @@
 session_start();
 require_once('db_connection.php');
 
+function isValidPassword($password) {
+    return preg_match('/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/', $password);
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $first_name = $_POST['first_name'];
@@ -10,6 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
+
+    if (!isValidPassword($password)) {
+        echo "<script>alert('Password must contain at least one number, one uppercase letter, one lowercase letter, one special character, and be at least 8 characters long.');</script>";
+        exit();
+    }
 
     $sql = "INSERT INTO doctors (username, first_name, last_name, certificate_number, email, phone_number, password, request_status)
             VALUES ('$username', '$first_name', '$last_name', '$certificate_number', '$email', '$phone_number', '$password', 'pending')";
