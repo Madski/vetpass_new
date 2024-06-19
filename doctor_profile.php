@@ -46,37 +46,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <?php include 'customer_header.php'; ?>
 
-    <section class="container">
-        <div class="container_profiles">
-            <h2 class="title-profile">Pietikt pierakstu</h2>
-            <div class="profile-details">
-                <div class="profile">
-                    <h3><?php echo htmlspecialchars($doctor['first_name'] . ' ' . $doctor['last_name']); ?></h3>
-                    <?php if (!empty($doctor['profile_photo'])): ?>
-                        <img src="<?php echo htmlspecialchars($doctor['profile_photo']); ?>" alt="Profile Photo">
-                    <?php else: ?>
-                        <img src="uploads/default_profile_photo.jpg" alt="Default Profile Photo">
-                    <?php endif; ?>
-                    <p>E-pasts: <?php echo htmlspecialchars($doctor['email']); ?></p>
-                    <p>Telefona numurs: <?php echo htmlspecialchars($doctor['phone_number']); ?></p>
-
-
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?id=" . htmlspecialchars($doctor_id); ?>" method="post">
-                        <label for="animal_problem">Pieraksta iemesls:</label><br>
-                        <textarea id="animal_problem" name="animal_problem" rows="4" cols="50" required></textarea><br>
-                        <div class="auth-buttons">
-                            <button class="button" type="submit">Pieteikt pierakstu</button>
-                            <input type="hidden" name="doctor_id" value="<?php echo htmlspecialchars($doctor_id); ?>">
-                        </div>
-                        
-                    </form>
-                </div>
+    <section class="profile_container">
+        <h2 class="profile_title">Pieteikt pierakstu</h2>
+        <div class="profile-details">
+            <div class="profile">
+                <?php if (!empty($doctor['profile_image'])): ?>
+                    <img src="<?php echo htmlspecialchars($doctor['profile_image']); ?>" alt="Profile Photo">
+                <?php else: ?>
+                    <img src="img/default_photo.png" alt="Default Profile Photo">
+                <?php endif; ?>
+                <h3><?php echo htmlspecialchars($doctor['first_name'] . ' ' . $doctor['last_name']); ?></h3>
+                <p>E-pasts: <?php echo htmlspecialchars($doctor['email']); ?></p>
+                <p>Telefona numurs: <?php echo htmlspecialchars($doctor['phone_number']); ?></p>
             </div>
+
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?id=" . htmlspecialchars($doctor_id); ?>" method="post">
+                <label for="animal_problem">Pieraksta iemesls:</label>
+                <textarea id="animal_problem" name="animal_problem" rows="4" required></textarea>
+                <div class="auth-buttons">
+                    <button class="button" type="submit">Pieteikt pierakstu</button>
+                </div>
+            </form>
         </div>
     </section>
 </body>

@@ -56,24 +56,19 @@ mysqli_close($conn);
                 <input class="form-control" type="text" id="name" name="name" value="<?php echo htmlspecialchars($row['owner_name']); ?>"><br>
             </div>
 
-            <div class="input-group">
+            <div class="input-group_edit">
                 <label for="surname">Uzvārds:</label><br>
                 <input class="form-control" type="text" id="surname" name="surname" value="<?php echo htmlspecialchars($row['owner_surname']); ?>"><br>
             </div>
 
-            <div class="input-group">
+            <div class="input-group_edit">
                 <label for="email">E-pasts:</label><br>
                 <input class="form-control" type="email" id="email" name="email" value="<?php echo htmlspecialchars($row['email']); ?>"><br>
             </div>
 
-            <div class="input-group">
+            <div class="input-group_edit">
                 <label for="phone">Telefona numurs:</label><br>
                 <input class="form-control" type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($row['phone_number']); ?>"><br><br>
-            </div>
-
-            <div class="input-group">
-                <label for="phone">Šķirne:</label><br>
-                <input class="form-control" type="text" id="atype" name="atype" value="<?php echo htmlspecialchars($row['animal_type']); ?>"><br><br>
             </div>
 
             <div class="input-group">

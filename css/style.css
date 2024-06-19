@@ -504,46 +504,48 @@ th, td {
 }
 
 .f_profile {
-    width: fit-content;
-    height: fit-content;
-    padding: 30px;
-    border-radius: 5px;
-    
     background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 90%;
+    max-width: 400px; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.f_profile_nav-link {
-    color: gray;
-    font-size: 18px;
+.navigation {
+    margin-bottom: 20px;
+}
 
-    &:link {
-        text-decoration: none;
-    }
-      
-    &:visited {
-        text-decoration: none;
-    }
-    
-    &:hover {
-        text-decoration: none;
-        color: rgb(174, 174, 174);
-    }
-    
-    &:active {
-        text-decoration: none;
-    }
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 
+.navigation ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navigation ul li a:hover {
+    background-color: #ddd;
 }
 
 .f_profile_info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-sizing: border-box;
+    margin-top: 20px;
 }
 
-.f_profile_info {
-    margin: 5px 0px;
+.f_profile_info p {
+    margin: 5px 0;
 }
 
 
@@ -551,20 +553,59 @@ th, td {
 ====================*/
 
 .container_profiles {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.container_profiles h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .profile_list {
-    width: 60%;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    margin: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.profile {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding-top: 20px;
+}
+
+.profile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.image-doctor {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+.profile h3 {
+    margin: 15px 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
 }
 
 /* Waiting screen
@@ -617,4 +658,136 @@ th, td {
 
 .title-profile {
     margin-bottom: 20px;
+}
+
+
+/* Doctor profile
+======================*/
+
+.profile_container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Virsraksta stils */
+.profile_title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Profila informācijas stils */
+.profile-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile h3 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #34495e;
+    margin: 0;
+}
+
+.profile p {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin: 5px 0;
+}
+
+/* Forma */
+form {
+    width: 100%;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 10px;
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    resize: vertical;
+}
+
+/* Edit profile
+==================*/
+
+.edit_profile_content {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit_profile_content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #49a6a6;
+}
+
+.input-group_edit {
+    margin-bottom: 15px;
+}
+
+.input-group_edit label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group_edit input[type="text"],
+.input-group_edit input[type="email"],
+.input-group_edit input[type="tel"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-group_edit input[type="submit"] {
+    background-color: #49a6a6;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-group_edit input[type="submit"]:hover {
+    background-color: #3e8c8c;
+}
+
+.profile_photo_preview {
+    width: 50%;
+    margin: 10px;
 }

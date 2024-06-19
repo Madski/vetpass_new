@@ -15,21 +15,12 @@ $row = mysqli_fetch_assoc($result);
 
 $doctor_name = $row['first_name'] . ' ' . $row['last_name'];
 $email = $row['email'];
-$profile_photo = $row['profile_photo'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $new_first_name = $_POST['first_name'];
     $new_last_name = $_POST['last_name'];
     $new_email = $_POST['email'];
     
-    if ($_FILES['profile_photo']['name']) {
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["profile_photo"]["name"]);
-        move_uploaded_file($_FILES["profile_photo"]["tmp_name"], $target_file);
-        $new_profile_photo = $target_file;
-    } else {
-        $new_profile_photo = $profile_photo;
-    }
     
     $update_sql = "UPDATE doctors_accepted SET first_name='$new_first_name', last_name='$new_last_name', email='$new_email', profile_photo='$new_profile_photo' WHERE id=$doctor_id";
     mysqli_query($conn, $update_sql);

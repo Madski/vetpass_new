@@ -39,7 +39,7 @@
                 <ul>
                     <li><a href="doctor_info.php">Profils</a></li>
                     <li><a href="doctor_visit.php">Pieraksti</a></li>
-                    <li><a href="customer_info.php">Pievienot datus</a></li>
+                    <li><a href="#">Pievienot datus</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
