@@ -54,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
 			<div class="login-title">
 				<h2>Pieslēgties</h2>
-                <p style="margin-top: 15px;">epasts: owner@gmail.com</p>
-                <p>Parole: owner</p>
+                <p style="margin-top: 15px;">epasts: marta@gmail.com</p>
+                <p>Parole: marta123</p>
 			</div>
 			
 			<form method="post" action="login.php">
